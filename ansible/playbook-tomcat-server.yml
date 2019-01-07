@@ -1,0 +1,23 @@
+---
+- hosts: tomcatserver
+  become: yes
+  become_method: sudo
+  remote_user: rezuser
+  vars:
+    root_location: "/rezsystem/"
+    user_name: "rezuser"
+    copy_soft_file: true 
+    soft_from_local: true
+    soft_from_remote: false  
+    copy_java: java
+    os_name: "centos"
+    
+    tomcat_version: "tomcat1"
+    java_version: "jdk1.8.0_45"
+    jdk_archive_file: "jdk1.8.0_45.zip"   
+
+  roles:
+    -  default
+    -  java
+    -  tomcat
+    -  tomcat-restart

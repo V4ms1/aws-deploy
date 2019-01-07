@@ -1,0 +1,25 @@
+---
+# tasks for deploy
+
+- name: Copy war file
+  copy:
+    src: "soft/{{ item }}"
+    dest: "/tmp/"
+    remote_src: no
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: "0775"
+  with_items:    
+    - "{{ deploy_war_name }}"
+  when : copy_soft_file
+
+- name: Deploy {{ deploy_war_name }} service
+  copy:
+    src: "/tmp/{{ deploy_war_name }}"
+    dest: "{{ root_location }}{{ tomcat_version }}/webapps"
+    remote_src: yes
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: "0775"
+  with_items:    
+    - "{{ deploy_war_name }}"

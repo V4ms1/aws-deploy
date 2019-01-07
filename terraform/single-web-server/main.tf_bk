@@ -1,0 +1,103 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# DEPLOY A SINGLE EC2 INSTANCE
+# This template uses runs a simple "Hello, World" web server on a single EC2 Instance
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ------------------------------------------------------------------------------
+# CONFIGURE OUR AWS CONNECTION
+# ------------------------------------------------------------------------------
+
+provider "aws" {
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
+  region     = "${var.region}"
+}
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# DEPLOY A SINGLE EC2 INSTANCE
+# ---------------------------------------------------------------------------------------------------------------------
+
+resource "aws_instance" "single-web-server" {  
+  ami 						= "${var.amazon_machine_image}"
+  instance_type 			= "t2.micro"
+  key_name               	= "${var.key_name}"
+  root_block_device 		= {
+    		volume_size     = "8"
+    		volume_type     = "gp2"
+  }
+  vpc_security_group_ids 	= ["${var.security_group_web}","${var.security_group_tomcat}","${var.security_group_ssh}"]
+  tags {
+    Name = "terraform-single-web-server"
+  }
+}
+
+
+
+
+
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# CREATE THE SECURITY GROUP THAT'S APPLIED TO THE EC2 INSTANCE
+# ---------------------------------------------------------------------------------------------------------------------
+
+resource "aws_security_group" "access-http-web" {
+  name 			= ""
+  description 	= "Allow 8080 inbound traffic"  
+  ingress {
+    from_port = 8080
+    to_port = 8080
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_security_group" "access-http" {
+  name 			= "Allow-80"
+  description 	= "Allow 80 inbound traffic"
+   ingress {
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_security_group" "default" {  
+  ingress {
+    protocol  = -1
+    self      = true
+    from_port = 0
+    to_port   = 0
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_security_group" "access-ssh" {
+  name = "Access-ssh"
+  description = "Security group for nat instances that allows SSH and VPN traffic from internet"
+  
+  ingress {
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port = 1194
+    to_port   = 1194
+    protocol  = "udp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags {
+    Name = "access-ssh"
+  }
+}

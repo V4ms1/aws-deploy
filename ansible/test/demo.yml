@@ -1,0 +1,28 @@
+---
+- hosts: mylocalhost
+  become_method: sudo
+  remote_user: thusitha
+  tasks:
+    - name: Create New folder
+      file:
+        path: /rezsystem/thusitha/soft
+        state: directory
+        mode: 0775
+    - name: Create New file
+      file:
+        path: /rezsystem/thusitha/soft/abc.txt
+        state: touch
+        mode: 0775
+    
+    - name: Copy all zip files
+      copy:
+        src: "soft/{{ item }}"
+        dest: "/rezsystem/thusitha/soft/{{ item }}"
+        remote_src: no
+        owner: thusitha
+        group: thusitha
+        mode: "0775"
+      with_items:
+        - "apache-tomcat-8.0.36.zip"
+        - "jdk1.8.0_45.zip"
+        - "aws-web.zip"

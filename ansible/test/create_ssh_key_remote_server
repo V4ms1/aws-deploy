@@ -1,0 +1,11 @@
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+
+cd ~/.ssh
+nano id_rsa.pub
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQCGoJPxjOLz9+fGBmDL6kadFXmbgcF8YpUMAfPfpMG13jgBYK0S+Y4MJOtY/6lKs1kB9uJeKce2aQuG/7/3q412rTj0ztk7TAB7uwyEv8BzoGR7vZpofHSL8ZLyWADLEzacIQtbVUw1sSnYOcd+fcSc9+AoXOcNAE5hlu3S8m+reQ== RSA-1024
+
+chmod 644 id_rsa.pub
+
+chmod 600 id_rsa

@@ -1,0 +1,10 @@
+- hosts: all
+  remote_user: ubuntu
+  vars:
+    authorized_key_list:
+      - name: ubuntu
+        authorized_keys:
+         - key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+           state: present
+  roles:
+    - { role: GROG.authorized-key }

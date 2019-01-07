@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/svn/svn-dockerfile.iml" filepath="$PROJECT_DIR$/svn/svn-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2-dockerfiles.iml" filepath="$PROJECT_DIR$/wso2-dockerfiles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2am/wso2am-dockerfile.iml" filepath="$PROJECT_DIR$/wso2am/wso2am-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2as/wso2as-dockerfile.iml" filepath="$PROJECT_DIR$/wso2as/wso2as-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2base/wso2base-dockerfile.iml" filepath="$PROJECT_DIR$/wso2base/wso2base-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2bps/wso2bps-dockerfile.iml" filepath="$PROJECT_DIR$/wso2bps/wso2bps-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2brs/wso2brs-dockerfile.iml" filepath="$PROJECT_DIR$/wso2brs/wso2brs-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2cep/wso2cep-dockerfile.iml" filepath="$PROJECT_DIR$/wso2cep/wso2cep-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2das/wso2das-dockerfile.iml" filepath="$PROJECT_DIR$/wso2das/wso2das-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2dss/wso2dss-dockerfile.iml" filepath="$PROJECT_DIR$/wso2dss/wso2dss-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2es/wso2es-dockerfile.iml" filepath="$PROJECT_DIR$/wso2es/wso2es-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2esb/wso2esb-dockerfile.iml" filepath="$PROJECT_DIR$/wso2esb/wso2esb-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2greg/wso2greg-dockerfile.iml" filepath="$PROJECT_DIR$/wso2greg/wso2greg-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2greg-pubstore/wso2greg-pubstore-dockerfile.iml" filepath="$PROJECT_DIR$/wso2greg-pubstore/wso2greg-pubstore-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2is/wso2is-dockerfile.iml" filepath="$PROJECT_DIR$/wso2is/wso2is-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2is-km/wso2is_km-dockerfile.iml" filepath="$PROJECT_DIR$/wso2is-km/wso2is_km-dockerfile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wso2mb/wso2mb-dockerfile.iml" filepath="$PROJECT_DIR$/wso2mb/wso2mb-dockerfile.iml" />
+    </modules>
+  </component>
+</project>

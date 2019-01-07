@@ -1,0 +1,8 @@
+#Build the Docker image by executing the build.sh
+./build.sh -v 3.2.0
+
+##docker-build.sh ##change docker verion 
+
+./run.sh -v 3.2.0
+
+./run.sh -v 3.2.0 -m /home/thusitha/artifacts

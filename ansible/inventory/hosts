@@ -1,0 +1,14 @@
+[webservers]
+34.211.34.52
+
+[mylocalhost]
+192.168.1.51
+
+[chamiduhost]
+192.168.0.38
+
+[tomcatserver]
+172.16.16.153
+
+[ubuntuserver]
+172.16.16.152

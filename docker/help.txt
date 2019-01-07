@@ -1,0 +1,116 @@
+######################################################
+docker run hello-world
+######################################################
+
+
+######################################################
+docker image ls
+######################################################
+
+
+
+######################################################
+## after create the Dockerfile, run followng command
+## https://docs.docker.com/get-started/part2/#build-the-app
+
+docker build -t friendlyhello .
+
+docker run -p 4000:80 friendlyhello
+
+#check following on browser
+http://localhost:4000
+#ctrl +c for exit
+
+#let’s run the app in the background, in detached mode
+docker run -d -p 4000:80 friendlyhello
+
+
+##Stop container
+docker container ls
+docker container stop 914156fcd2fd
+######################################################
+
+
+######################################################
+#Login  https://cloud.docker.com/ , create account
+#publish images into external repo
+
+##enter user name and password here
+docker login
+
+docker tag friendlyhello idthusitha/get-started:part2
+docker images
+docker push idthusitha/get-started:part2
+
+docker run -p 4000:80 idthusitha/get-started:part2
+
+docker run -d -p 4000:80 idthusitha/get-started:part2
+docker stop e77492992116
+######################################################
+
+
+
+######################################################
+#Run your new load-balanced app
+#docker-compose.yml
+
+docker swarm init --advertise-addr 192.168.1.51
+
+#after adding vertual box in ubuntu
+docker-machine create --driver virtualbox myvm1
+docker-machine create --driver virtualbox myvm2
+
+docker stack deploy
+docker stack deploy -c docker-compose.yml getstartedlab
+
+docker-machine ls
+
+
+docker-machine ssh myvm1 "docker swarm init --advertise-addr 192.168.99.100"
+
+##out put as follows
+#docker swarm join --token SWMTKN-1-53vbn3upjlyg32hhs57d7amnmyi7798wacr1gcfcshau1goypd-1alf4dtdusoq0shn05k0yslbx 192.168.99.100:2377
+docker-machine ssh myvm2 "docker swarm join --token SWMTKN-1-53vbn3upjlyg32hhs57d7amnmyi7798wacr1gcfcshau1goypd-1alf4dtdusoq0shn05k0yslbx 192.168.99.101:2377"
+
+docker swarm join --token SWMTKN-1-53vbn3upjlyg32hhs57d7amnmyi7798wacr1gcfcshau1goypd-1alf4dtdusoq0shn05k0yslbx 192.168.99.101:2377
+
+docker-machine env myvm1
+docker-machine ssh myvm1 "docker node ls"
+
+eval $(docker-machine env myvm1)
+docker-machine ls
+######################################################
+
+
+
+docker ps 
+docker pull --> pull the image form the repo
+
+docker pull centos:7
+
+docker ps -a --> all containers
+
+docker ps --> running containers
+
+docker run --name "test" -d -ti centos:7
+
+docker rm test
+
+login --> docker exec -ti test bash 
+
+docker stop name  --> you cant, run this again docker stat or remove 
+
+docker run --name test -d -v /rezsystem/host/path:/docker/path -ti centos:7  -- --> volume
+
+
+127.0.0.1	gateway.loc
+127.0.0.1	devenv.gateway.loc
+192.168.1.205	cenenv.gateway.loc
+
+80:80 local port: docker port
+
+
+
+
+
+
