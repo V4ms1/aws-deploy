@@ -11,6 +11,14 @@ software to be installed on the client computers.
 
 Use the this link:- https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-14-04
 
+you have set your aws_access_key_id and aws_secret_access_key on following file (ansible/inventory/ec2.ini)
+
+```bash
+aws_access_key_id = XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+
 ```bash
 sudo apt update
 sudo apt install software-properties-common
@@ -50,7 +58,15 @@ for all supported platforms and architectures. This page will not cover how to c
 
 ## Installation
 
-Use the this link:- https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-14-04
+Use the this link:- 
+
+you have set your access_key and secret_key on following file (terraform/variables.tf)
+
+```bash
+variable "access_key" {  default="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"  }
+variable "secret_key" {  default="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"  }
+```
+
 
 ```bash
 sudo apt-get install unzip
