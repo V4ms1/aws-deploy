@@ -29,6 +29,7 @@ sudo apt install python
 ## Usage
 
 ```python
+cd ..../aws-deploy/ansible/
 ssh-keygen -R 172.16.16.152
 ssh-copy-id rezuser@172.16.16.152
 ssh rezuser@172.16.16.152
@@ -40,6 +41,39 @@ ansible-playbook playbook-tomcat-server.yml --ask-pass
 or
 
 ansible-playbook playbook-tomcat-server.yml --ask-become-pass
+```
+
+# How install Terraform
+
+Terraform must first be installed on your machine. Terraform is distributed as a binary package 
+for all supported platforms and architectures. This page will not cover how to compile Terraform from source, but compiling from source is covered in the documentation for those who want to be sure they're compiling source they trust into the final binary.
+
+## Installation
+
+Use the this link:- https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-14-04
+
+```bash
+sudo apt-get install unzip
+
+wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip
+
+unzip terraform_0.11.10_linux_amd64.zip
+
+
+sudo mv terraform /usr/local/bin/
+
+
+terraform --version 
+```
+
+## Usage
+
+```python
+cd ..../aws-deploy/terraform/
+
+terraform init
+
+terraform apply
 ```
 
 ## Contributing
