@@ -49,3 +49,10 @@ All other commands:
     state              Advanced state management
     
 ######################################################
+cd ..../aws-deploy/terraform/
+
+terraform init
+
+terraform apply
+
+######################################################
