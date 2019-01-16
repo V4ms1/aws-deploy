@@ -13,9 +13,9 @@
     java_version: "jdk1.8.0_144"
     jdk_archive_file: "jdk1.8.0_144.tar.gz"
     
-    nexus_server: "nexus.rezos.io"
-    nexus_user_name: "thusitha"
-    nexus_password: "qaws12"
+    nexus_server: "############"
+    nexus_user_name: "############"
+    nexus_password: "############"
     
     mysql_root_password: "123456"
     
